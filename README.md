@@ -1,6 +1,6 @@
 # DotNetApp
 
-Dockerized .NET Core 1.1.5 REST API boilerplate with Postgresql and .env vars
+Dockerized .NET Core 2.x App boilerplate with Postgres, Sass, ES6, custom .env vars and more
 
 ## Imperfections
 
