@@ -56,6 +56,8 @@ namespace DotNetAPI2
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
+            
             app.UseMvc();
         }
     }
