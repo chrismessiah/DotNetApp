@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DotNetAPI2
+namespace DotNetApp
 {
     public static class Globals
     {

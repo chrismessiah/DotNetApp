@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
-using DotNetAPI2;
-using DotNetAPI2.Data;
-using DotNetAPI2.Models;
+using DotNetApp;
+using DotNetApp.Data;
+using DotNetApp.Models;
 
-namespace DotNetAPI2.Controllers
+namespace DotNetApp.Controllers
 {
     [Route("api/[controller]")]
     public class UsersController : Controller

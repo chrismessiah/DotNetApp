@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 * Data annotations for tell EntityFramework
 * how to treat the fields of each model.
 */
-namespace DotNetAPI2.Models
+namespace DotNetApp.Models
 {
     public class User
     {

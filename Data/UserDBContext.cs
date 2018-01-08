@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using DotNetAPI2;
-using DotNetAPI2.Models;
+using DotNetApp;
+using DotNetApp.Models;
 // Need to change this
 
 /*
@@ -8,7 +8,7 @@ using DotNetAPI2.Models;
 * a table using our User Model
 */
 
-namespace DotNetAPI2.Data
+namespace DotNetApp.Data
 {
     /*
     * We define a database context by creating a class that extends the
