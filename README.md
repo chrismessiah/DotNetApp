@@ -1,6 +1,6 @@
 # DotNetApp
 
-Dockerized .NET Core 2.x Razor app boilerplate with Postgres, Sass, ES6, custom .env vars and more
+Dockerized .NET Core 2.x Razor app boilerplate with Postgres, Gulp, Sass, ES6, custom .env vars and more
 
 ## Imperfections
 
