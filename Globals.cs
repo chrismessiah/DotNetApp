@@ -34,6 +34,24 @@ namespace DotNetApp
               // adds ALL env vars not only those passed by docker
               Globals.env.Add(enumerator.Key.ToString(), enumerator.Value.ToString());
           }
+          if (Globals.env.ContainsKey("DATABASE_URL")) {
+            Globals.env["DATABASE_URL"] = Globals.env["DATABASE_URL"].Replace("postgres://", "");
+            var tmp = Globals.env["DATABASE_URL"];
+
+            var user = tmp.Split(":")[0];
+            tmp = tmp.Replace($"{user}:", "");
+
+            var password = tmp.Split("@")[0];
+            tmp = tmp.Replace($"{password}@", "");
+
+            var host = tmp.Split(":")[0];
+            tmp = tmp.Replace($"{host}:", "");
+
+            var port = tmp.Split("/")[0];
+            var db = tmp.Split("/")[1];
+
+            Globals.env["DATABASE_URL"] = $"User ID={user};Password={password};Server={host};Port={port};Database={db}";
+          }
         }
 
         private static void ReadEnviromentVariablesDevelopment(string path)
