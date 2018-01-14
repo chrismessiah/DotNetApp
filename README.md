@@ -6,6 +6,17 @@ Dockerized .NET Core 2.0.x Razor app boilerplate with Postgres, Gulp, Sass, ES6,
 
 Nothing is perfect and this project is **very far** from it. Bellow I document oddities to avoid unnecessary headices.
 
+### -1. Current errors
+
+In the log there is an entry on XML DataProtection
+
+```
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+      No XML encryptor configured. Key {....} may be persisted to storage in unencrypted form.
+```
+
+It might be solved by [configuring data-protection](https://docs.microsoft.com/sv-se/aspnet/core/security/data-protection/configuration/overview?tabs=aspnetcore2x)
+
 ### 0. Not by any means secure(!)
 Throughout the project there are several notes regarding thing that should be changes/updated/added in order to achive a better overall security. A few examples are
 
