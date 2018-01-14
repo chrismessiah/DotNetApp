@@ -17,7 +17,9 @@ namespace DotNetApp
         {
             if (!haveRead) {
                 ReadEnviromentVariablesDevelopment("./.env");
+                Console.WriteLine("Starting");
                 if (!Globals.env.ContainsKey("DOTNET_ENV") || Globals.env["DOTNET_ENV"] != "Development") {
+                    Console.WriteLine("Entered");
                     ClearEnviromentVariables();
                     ReadEnviromentVariablesProduction();
                     Console.WriteLine("Environment is PRODUCTION");
@@ -32,6 +34,7 @@ namespace DotNetApp
           while (enumerator.MoveNext())
           {
               // adds ALL env vars not only those passed by docker
+              Console.WriteLine(enumerator.Value.ToString());
               Globals.env.Add(enumerator.Key.ToString(), enumerator.Value.ToString());
           }
           if (Globals.env.ContainsKey("DATABASE_URL")) {
