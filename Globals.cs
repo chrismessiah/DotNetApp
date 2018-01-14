@@ -32,7 +32,6 @@ namespace DotNetApp
           while (enumerator.MoveNext())
           {
               // adds ALL env vars not only those passed by docker
-              Console.WriteLine(enumerator.Value.ToString());
               Globals.env.Add(enumerator.Key.ToString(), enumerator.Value.ToString());
           }
           if (Globals.env.ContainsKey("DATABASE_URL")) {
