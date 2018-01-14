@@ -35,8 +35,7 @@ namespace DotNetApp
               Globals.env.Add(enumerator.Key.ToString(), enumerator.Value.ToString());
           }
           if (Globals.env.ContainsKey("DATABASE_URL")) {
-            Globals.env["DATABASE_URL"] = Globals.env["DATABASE_URL"].Replace("postgres://", "");
-            var tmp = Globals.env["DATABASE_URL"];
+            var tmp = Globals.env["DATABASE_URL"].Replace("postgres://", "");
 
             var user = tmp.Split(":")[0];
             tmp = tmp.Replace($"{user}:", "");
@@ -50,7 +49,7 @@ namespace DotNetApp
             var port = tmp.Split("/")[0];
             var db = tmp.Split("/")[1];
 
-            Globals.env["DATABASE_URL"] = $"User ID={user};Password={password};Server={host};Port={port};Database={db}";
+            Globals.env["CONNECTION_STRING"] = $"User ID={user};Password={password};Server={host};Port={port};Database={db}";
           }
         }
 

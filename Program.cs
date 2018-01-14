@@ -16,6 +16,7 @@ namespace DotNetApp
       {
           Globals.ReadEnviromentVariables();
           hostingUrl = (Globals.env["DOTNET_ENV"] == "Production") ? "http://0.0.0.0:5000" : "http://localhost:5000";
+          Console.WriteLine($"Hosting url is {hostingUrl}");
           BuildWebHost(args).Run();
       }
       private static string hostingUrl;
