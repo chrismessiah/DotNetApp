@@ -17,7 +17,7 @@ Throughout the project there are several notes regarding thing that should be ch
 Make sure you set these env vars using `docker ... -e KEY="VALUE"` or similar
 
 * `DOTNET_ENV="Production"`
-* `CONNECTION_STRING="User ID=username;Password=password;Server=localhost;Port=5432;Database=dbname"`
+* `DATABASE_URL="postgres://user:password@host:port/db"`
 
 ### 2. `appsettings.json` is overrided
 
