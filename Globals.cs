@@ -19,7 +19,6 @@ namespace DotNetApp
                 ReadEnviromentVariablesDevelopment("./.env");
                 Console.WriteLine("Starting");
                 Console.WriteLine("Printing");
-                Console.WriteLine(Globals.env["DOTNET_ENV"]);
                 if (!Globals.env.ContainsKey("DOTNET_ENV") || Globals.env["DOTNET_ENV"] != "Development") {
                     Console.WriteLine("Entered");
                     ClearEnviromentVariables();
@@ -71,7 +70,7 @@ namespace DotNetApp
                     Console.WriteLine(line.Substring(index+1));
                     Globals.env.Add(line.Substring(0, index), line.Substring(index+1));
                 }
-                
+
                 if (!Globals.env.ContainsKey("DOTNET_ENV"))
                 {
                     Globals.env.Add("DOTNET_ENV", "Development");
