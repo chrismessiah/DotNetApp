@@ -22,6 +22,11 @@ namespace DotNetApp
                     ReadEnviromentVariablesProduction();
                     Console.WriteLine("Environment is PRODUCTION");
                 }
+                if (!Globals.env.ContainsKey("DOTNET_ENV")) {
+                    ClearEnviromentVariables();
+                    Globals.env.Add("DOTNET_ENV", "Development");
+                    Console.WriteLine("Nope, environment is really DEVELOPMENT");
+                }
                 haveRead = true;
             }
         }
