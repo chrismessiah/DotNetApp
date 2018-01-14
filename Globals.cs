@@ -60,6 +60,7 @@ namespace DotNetApp
 
         private static void ReadEnviromentVariablesDevelopment(string path)
         {
+            Console.WriteLine("checking .env file");
             if (System.IO.File.Exists(path))
             {
                 Console.WriteLine(".env file exists");
@@ -70,11 +71,11 @@ namespace DotNetApp
                     Console.WriteLine(line.Substring(index+1));
                     Globals.env.Add(line.Substring(0, index), line.Substring(index+1));
                 }
-            }
-
-            if (!Globals.env.ContainsKey("DOTNET_ENV"))
-            {
-                Globals.env.Add("DOTNET_ENV", "Development");
+                
+                if (!Globals.env.ContainsKey("DOTNET_ENV"))
+                {
+                    Globals.env.Add("DOTNET_ENV", "Development");
+                }
             }
         }
     }
