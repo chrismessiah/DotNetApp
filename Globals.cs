@@ -62,10 +62,12 @@ namespace DotNetApp
         {
             if (System.IO.File.Exists(path))
             {
+                Console.WriteLine(".env file exists");
                 string[] lines = System.IO.File.ReadAllLines(path);
                 foreach (string line in lines)
                 {
                     var index = line.IndexOf("=");
+                    Console.WriteLine(line.Substring(index+1));
                     Globals.env.Add(line.Substring(0, index), line.Substring(index+1));
                 }
             }
