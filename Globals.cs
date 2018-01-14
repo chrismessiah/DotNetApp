@@ -17,10 +17,7 @@ namespace DotNetApp
         {
             if (!haveRead) {
                 ReadEnviromentVariablesDevelopment("./.env");
-                Console.WriteLine("Starting");
-                Console.WriteLine("Printing");
                 if (!Globals.env.ContainsKey("DOTNET_ENV") || Globals.env["DOTNET_ENV"] != "Development") {
-                    Console.WriteLine("Entered");
                     ClearEnviromentVariables();
                     ReadEnviromentVariablesProduction();
                     Console.WriteLine("Environment is PRODUCTION");
@@ -54,20 +51,20 @@ namespace DotNetApp
             var db = tmp.Split("/")[1];
 
             Globals.env["CONNECTION_STRING"] = $"User ID={user};Password={password};Server={host};Port={port};Database={db}";
+          } else {
+              Console.WriteLine("NO DATABASE LINKED !!! DATABASE_URL IS EMPTY");
           }
         }
 
         private static void ReadEnviromentVariablesDevelopment(string path)
         {
-            Console.WriteLine("checking .env file");
             if (System.IO.File.Exists(path))
             {
-                Console.WriteLine(".env file exists");
+                Console.WriteLine("Environment is DEVELOPMENT");
                 string[] lines = System.IO.File.ReadAllLines(path);
                 foreach (string line in lines)
                 {
                     var index = line.IndexOf("=");
-                    Console.WriteLine(line.Substring(index+1));
                     Globals.env.Add(line.Substring(0, index), line.Substring(index+1));
                 }
 
