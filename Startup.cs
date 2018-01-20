@@ -56,8 +56,21 @@ namespace DotNetApp
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseStaticFiles();
-            
+            if (Globals.env["DOTNET_ENV"] == "Production")
+            {
+                app.UseStaticFiles();
+            }
+            else
+            {
+                app.UseStaticFiles(new StaticFileOptions()
+                {
+                    OnPrepareResponse = context2 =>
+                    {
+                        context2.Context.Response.Headers.Add("Cache-Control", "no-cache, no-store");
+                        context2.Context.Response.Headers.Add("Expires", "-1");
+                    }
+                });
+            }
             app.UseMvc();
         }
     }
